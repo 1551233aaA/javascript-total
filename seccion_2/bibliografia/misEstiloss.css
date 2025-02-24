@@ -1,0 +1,39 @@
+
+
+h1{
+ 
+    color:rgb(31, 31, 124)
+    
+}
+
+p{
+    color:rgb(161, 50, 50);
+    border: 1xp;
+    border-style: solid;
+
+}
+
+body{
+    background-color:rgb(95, 64, 27)
+}
+ 
+.principal{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+ }
+ 
+#informacion{
+    text-align: center;
+    border-style: inset;
+}
+ 
+a[href=".edu"]{
+    background-color: gold;
+ 
+}
+
+ 
+.principal::first-line{
+    background-color:rgb(96, 39, 39);
+ 
+}
+
