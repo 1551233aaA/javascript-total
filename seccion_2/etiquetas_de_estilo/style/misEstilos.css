@@ -5,14 +5,15 @@ h1{
      
 }
      
+rder-style:solid;
+     
+
 p{
-     
-    color: cadetblue;
+    color: green;   
     border: 1px;
-    border-style:solid;
-     
+    border-style: solid;
 }
-     
+ 
 #perros{
      
     color:aqua;}
