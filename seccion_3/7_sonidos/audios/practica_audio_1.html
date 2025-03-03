@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>practica</title>
+
+    <style>
+        audio::webkit-media-controls-panel {
+            background-color: rgb(26, 213, 51);
+        }
+    </style>
+</head>
+
+<body>
+    <img src="c:\Users\JParias\Pictures\pokemon__.png" 
+    width="30%">
+    <p>
+    <audio id="pokemon__" controls>
+        <source src="cries_pokemon_latest_1 (1).ogg" type="audio/mpeg">
+    </audio>
+        
+    <button onclick="mostrarAudios()">audio</button>
+
+    <script>
+         let Audiopokemon__ = document.getElementById ("pokemon__");
+         function mostrarAudio() {
+            Audiopokemon__.play();
+        }
+
+    </script>
+    </p>
+</body>
+
+</html>
