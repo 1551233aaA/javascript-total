@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+ <html lang="es">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Juego de Preguntas</title>
+     <link rel="stylesheet"  href="misEstilos.css">
+     <style>
+         body {
+             font-family: Arial, sans-serif;
+             text-align: center;
+             background-color: #f0f0f0;
+         }
+         .container {
+             width: 90%;
+             max-width: 400px;
+             background: white;
+             padding: 20px;
+             margin: auto;
+             margin-top: 50px;
+             border-radius: 10px;
+             box-shadow: 0 0 10px gray;
+         }
+         input {
+             width: 100%;
+             padding: 8px;
+             margin: 5px 0;
+         }
+         button {
+             padding: 10px;
+             margin: 10px 5px;
+             cursor: pointer;
+             border: none;
+             background: blue;
+             color: white;
+             border-radius: 5px;
+         }
+         #timer {
+             font-size: 18px;
+             color: red;
+             font-weight: bold;
+         }
+     </style>
+ </head>
+  
+
+<body onload="startCountdown()">
+    <div class="container">
+        <h1 id="textoAlarma">00:00:00</h1>
+        <h2 id="mensaje">se acabo el tiempo</h2>
+        <audio id="gameover" controls>
+            <source src="gameover.mp3" type="audio/mp3">
+        </audio>
+       
+        <form id="Preguntas">
+        <p>1. cuantos dias tiene dos semanas</p>
+        <input type="text" id="p1">
+        
+        <p>2. cuanto es 2+2</p>
+        <input type="text" id="p2">
+
+        <p>3. como se llama la capital de francia</p>
+        <input type="text" id="p3">
+
+        <p>4. cuantos dias tiene un año</p>
+        <input type="text" id="p4">
+
+        <p>5. como le dicen a las personas nacidas en peru</p>
+        <input type="text" id="p5">
+
+        <button type="button" onclick="finalizarJuego()">Finalizar</button>
+        <button onclick="location.reload();">Comenzar de nuevo</button>
+     </form>
+    </div>
+
+    <script>
+        let tiempo= 30;
+        let cuentaRegresiva;
+
+        let elementoSegundos = document.getElementById("tiempoElegido");
+        let elementoTextoAlarma = document.getElementById("textoAlarma");
+        let elementoSonidoAlarma = document.getElementById("audioAlarma");
+
+        function comenzarTiempo() {
+            setTimeout(tiempoCumplido, 1000 = elementoSegundos.value);
+        }
+
+        function comenzarReloj() {
+             setInterval(ticTac, 1000);
+        }
+
+        function iniciarJuego(){
+            cuentaRegresiva = setInterval(() => {
+                ducumente.getElementById("timer").innerText = "Tiempo restante" + tiempo + "s";
+
+                if (tiempo == 0) { 
+                    clearInterva(cuentaRegresiva);
+                    alert("!Game over¡");
+                } 
+
+                tiempo--;
+            }, 1000)}
+
+            function finalizarJuego() {
+                clearInterval(cuentaRegresiva);
+                
+                let respuestas = [];
+                for (let i = 1;i<= 5;i++) {
+                    respuestas.push(document.getElementById("p"+i).value);
+
+                }
+                let fechaHoy = new Date().toLocaleDateString();
+            alert("Tus respuestas:\n" + respuestas.join("\n") + "\nFecha: " + fechaHoy);
+        }
+        
+        function reiniciarJuego() {
+            location.reload();
+        }
+
+
+    </script>
+</body>
+</html>
