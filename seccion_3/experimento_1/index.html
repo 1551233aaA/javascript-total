@@ -46,6 +46,10 @@
     <div class="container">
         <h1>Juego de Preguntas</h1>
         <div id="contador">30</div>
+        <audio id="AudioAlarma">
+            <source src="gameover.mp3">
+            sonido no habilitado
+        </audio>
         <form id="Preguntas">
             <p>1. ¿Cuántos días tiene dos semanas?</p>
             <input type="text" id="p1">
@@ -63,15 +67,16 @@
             <input type="text" id="p5">
         </form>
         <button id="btnIniciar">Iniciar</button>
+        <button onclick="location.reload();">Reiniciar</button>
         <button id="btnDetener">Detener</button>
-        <button id="btnReiniciar">Reiniciar</button>
         <button onclick="finalizarJuego()">Finalizar</button>
-        <button onclick="location.reload();">Comenzar de nuevo</button>
+       
     </div>
 
     <script>
         let tiempo = 30;
         let intervalo = null;
+        let elementoSonido = document.getElementById("AudioAlarma");
         
         function actualizarContador() {
             document.getElementById("contador").textContent = tiempo;
@@ -82,9 +87,7 @@
                 tiempo--;
                 actualizarContador();
             } else {
-                detenerContador();
-                alert("¡Tiempo terminado!");
-                finalizarJuego();
+                tiempoCumplido();
             }
         }
 
@@ -113,6 +116,12 @@
             }
             let fechaHoy = new Date().toLocaleDateString();
             alert("Tus respuestas:\n" + respuestas.join("\n") + "\nFecha: " + fechaHoy);
+        }
+
+        function tiempoCumplido() {
+            detenerContador();
+            elementoSonido.play();
+            alert("Game over, vuelve a intentarlo");
         }
 
         document.getElementById("btnIniciar").addEventListener("click", iniciarContador);
