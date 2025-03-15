@@ -1,19 +1,21 @@
 <!DOCTYPE html>
+<html lang="en">
 <head>
-     <title>math</title> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index math</title>
 </head>
-
 <body>
     <script>
-        function potenciar(base, exponente) {
-            return math.pow(base, exponente)
+        function potenciar(base, exponente){
+            return Math.pow(base, exponente)
         }
-        cosole.console.log(potenciar(2,3));
+        console.log(potenciar(2, 3))
 
-        function calcularCircunferencia (diametro) {
-            
+        function calcularCircunferencia(diametro){
+            return Math.PI * diametro;
         }
-
-        
+        console.log(calcularCircunferencia(10))
     </script>
 </body>
+</html>

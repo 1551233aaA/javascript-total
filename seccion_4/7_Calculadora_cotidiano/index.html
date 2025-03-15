@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <link rel="stylesheet" href="misEstilos.css">
+</head>
+<body>
+    <h1>Calculadora</h1>
+    <input type="number" id="Put1"> <input type="number" id="put2">
+    <br>
+    <button onclick="sumar()" id="suma">+</button>
+    <button onclick="restar()" id="resta">-</button>
+    <button onclick="multiplicar()" id="multiplicar">x</button>
+    <button onclick="dividir()" id="dividir">/</button>
+    <button onclick="raiz()" id="raiz">raíz</button>
+    <button onclick="potencia()" id="potencia">potencia</button>
+    <button onclick="absoluto()" id="absoluto">absoluto</button>
+    <button onclick="random()" id="random">random</button>
+    <h2>Resultado:</h2>    <div id="resultado:"></div>
+
+    <script>
+        function sumar(){
+           let numero1=document.getElementById("Put1");
+           let numero2=document.getElementById("put2");
+           let resultado=parseInt(numero1.value) + parseInt(numero2.value);
+           let textoResultado=document.getElementById("resultado:")
+           textoResultado.textContent =resultado;
+        }
+
+        function restar(){
+           let numero1=document.getElementById("Put1");
+           let numero2=document.getElementById("put2");
+           let resultado=parseInt(numero1.value) - parseInt(numero2.value);
+           let textoResultado=document.getElementById("resultado:")
+           textoResultado.textContent =resultado;
+        }
+
+
+    </script>
+</body>
+</html>
