@@ -1,0 +1,40 @@
+#Put1{
+    width: 200px;
+    height: 25px;
+    margin-left: 40%;
+}
+
+#put2{
+    width: 200px;
+    height: 25px;
+    margin-left:1% ;
+}
+h1{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 200%;
+    margin-left: 45%;
+}
+#suma{
+    margin-left: 40%;
+    width: 100px;
+    height: 100px;
+    margin-top: 1%;
+}
+#resta{
+    width: 100px;
+    height: 100px;
+    margin-top:1% ;
+}
+#dividir{
+    width: 100px;
+    height: 100px;
+    margin-top: 1%;
+}
+#multiplicar{
+    width: 100px;
+    height: 100px;
+    margin-top: 1%;
+}
+div{
+    border: 10%;
+}

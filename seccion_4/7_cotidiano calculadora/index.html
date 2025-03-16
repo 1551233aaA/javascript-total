@@ -3,10 +3,13 @@
     <head>
         <title>calculadora</title>
         <link rel="stylesheet" href="misEstilos.css">
+
     </head>
 
     <body>
         <h1>Calculadora</h1>
+
+            <input type="number" id="Put1"> <input type="number" id="put2">
         
             <button onclick="sumar()">+</button>
             <button onclick="restar()">-</button>
@@ -23,8 +26,41 @@
             <button onclick="absoluto()">absoluto</button>
             <button onclick="random()">random</button>
 
-            <input type="text" id="Respuesta">
+            <h2>Resultado:</h2>    <div id="resultado:"></div>
         <script>
+            function sumar(){
+           let numero1=document.getElementById("Put1");
+           let numero2=document.getElementById("put2");
+           let resultado=parseInt(numero1.value) + parseInt(numero2.value);
+           let textoResultado=document.getElementById("resultado:")
+           textoResultado.textContent =resultado;
+        }
 
+        function dividir(){
+           let numero1=document.getElementById("Put1");
+           let numero2=document.getElementById("put2");
+           let resultado=parseInt(numero1.value) / parseInt(numero2.value);
+           let textoResultado=document.getElementById("resultado:")
+           textoResultado.textContent =resultado;
+        }
+
+        function multiplicar(){
+           let numero1=document.getElementById("Put1");
+           let numero2=document.getElementById("put2");
+           let resultado=parseInt(numero1.value) * parseInt(numero2.value);
+           let textoResultado=document.getElementById("resultado:")
+           textoResultado.textContent =resultado;
+        }
+
+        function raiz() {
+                let numero1 = document.getElementById("Put1");
+                if (numero1.value !== "") {
+                    let resultado = Math.sqrt(parseFloat(numero1.value));
+                    let textoResultado = document.getElementById("resultado");
+                    textoResultado.textContent = `La raíz es: ${resultado}`;
+                } else {
+                    alert("Ingresa un número en el primer campo");
+                }
+            }
         </script>
     </body>
