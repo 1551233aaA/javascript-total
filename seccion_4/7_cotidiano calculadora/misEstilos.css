@@ -1,40 +1,47 @@
-#Put1{
-    width: 200px;
-    height: 25px;
-    margin-left: 40%;
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 20px;
+    background-color: #f4f4f4;
 }
 
-#put2{
-    width: 200px;
-    height: 25px;
-    margin-left:1% ;
+h1 {
+    color: #333;
 }
-h1{
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 200%;
-    margin-left: 45%;
+
+.inputs {
+    margin: 10px 0;
 }
-#suma{
-    margin-left: 40%;
+
+input[type="number"] {
     width: 100px;
-    height: 100px;
-    margin-top: 1%;
+    padding: 5px;
+    margin: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
-#resta{
-    width: 100px;
-    height: 100px;
-    margin-top:1% ;
+
+
+
+button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
 }
-#dividir{
-    width: 100px;
-    height: 100px;
-    margin-top: 1%;
+
+button:hover {
+    background-color: #0056b3;
 }
-#multiplicar{
-    width: 100px;
-    height: 100px;
-    margin-top: 1%;
-}
-div{
-    border: 10%;
+
+#resultado {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    display: inline-block;
+    background-color: #fff;
 }
