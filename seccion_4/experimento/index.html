@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Menú Restaurante</title>
+</head>
+<body>
+    <header>
+        <h1>Menú del Restaurante</h1>
+    </header>
+    <main>
+        <section class="menu">
+            <h2>Platos Principales</h2>
+            <ul>
+                <li>
+                    <h3>Pizza Margarita</h3>
+                    <p>Deliciosa pizza con salsa de tomate, mozzarella y albahaca.</p>
+                    <p>Precio: $10</p>
+                    <button onclick="ordenar('Pizza Margarita', 10)">Ordenar</button>
+                </li>
+                <li>
+                    <h3>Spaghetti Carbonara</h3>
+                    <p>Espaguetis con salsa cremosa, huevo, panceta y queso.</p>
+                    <p>Precio: $12</p>
+                    <button onclick="ordenar('Spaghetti Carbonara', 12)">Ordenar</button>
+                </li>
+            </ul>
+            <button id="btnTotal" onclick="mostrarTotal()">Mostrar Total</button>
+            <div id="resultado"></div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Restaurante</p>
+    </footer>
+
+    <script>
+        let total = 0;
+        let pedidos = [];
+
+        function ordenar(plato, precio) {
+            pedidos.push(plato);
+            total += precio;
+            alert("Has ordenado: " + plato);
+        }
+
+        function mostrarTotal() {
+            const listaPedidos = pedidos.join(', ');
+            const mensaje = `Has ordenado: ${listaPedidos}\nTotal: $${total}`;
+            document.getElementById('resultado').innerText = mensaje;
+        }
+    </script>
+</body>
+</html>
