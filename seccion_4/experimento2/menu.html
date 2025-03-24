@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú Interactivo - Cafetería</title>
+    <link rel="stylesheet" href="styless.css">
+</head>
+<body>
+    <header>
+        <h1>Menú de Nuestra Cafetería</h1>
+        <p>Descubre tus bebidas y bocadillos favoritos</p>
+        <input type="text" id="searchBar" placeholder="Buscar en el menú..." oninput="buscarPlatillo()">
+    </header>
+
+    <main>
+        <section id="menu">
+            <h2>Bebidas</h2>
+            <ul>
+                <li data-categoria="bebida">
+                    <h3>Café Americano</h3>
+                    <p>Sabor clásico y aromático</p>
+                    <p>Precio: $3</p>
+                    <button onclick="agregarAlCarrito('Café Americano', 3)">Añadir al carrito</button>
+                </li>
+                <li data-categoria="bebida">
+                    <h3>Latte</h3>
+                    <p>Con leche espumosa y delicioso sabor</p>
+                    <p>Precio: $4</p>
+                    <button onclick="agregarAlCarrito('Latte', 4)">Añadir al carrito</button>
+                </li>
+                <li data-categoria="bebida">
+                    <h3>Té Matcha</h3>
+                    <p>Bebida verde llena de energía</p>
+                    <p>Precio: $5</p>
+                    <button onclick="agregarAlCarrito('Té Matcha', 5)">Añadir al carrito</button>
+                </li>
+            </ul>
+            <h2>Bocadillos</h2>
+            <ul>
+                <li data-categoria="bocadillo">
+                    <h3>Panini de Jamón y Queso</h3>
+                    <p>Perfecto para un almuerzo ligero</p>
+                    <p>Precio: $7</p>
+                    <button onclick="agregarAlCarrito('Panini de Jamón y Queso', 7)">Añadir al carrito</button>
+                </li>
+                <li data-categoria="bocadillo">
+                    <h3>Croissant de Almendra</h3>
+                    <p>Deliciosamente crujiente y dulce</p>
+                    <p>Precio: $4</p>
+                    <button onclick="agregarAlCarrito('Croissant de Almendra', 4)">Añadir al carrito</button>
+                </li>
+            </ul>
+        </section>
+
+        <section id="resumenPedido">
+            <h2>Carrito</h2>
+            <ul id="carrito"></ul>
+            <p id="total">Total: $0</p>
+            <button onclick="finalizarPedido()">Finalizar Pedido</button>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Cafetería - Todos los derechos reservados</p>
+    </footer>
+
+    <script>
+        /* JavaScript directamente aquí */
+        let carrito = [];
+        let total = 0;
+
+        function agregarAlCarrito(nombre, precio) {
+            carrito.push({ nombre, precio });
+            total += precio;
+            actualizarCarrito();
+        }
+
+        function actualizarCarrito() {
+            const carritoUl = document.getElementById('carrito');
+            carritoUl.innerHTML = ''; // Limpia la lista actual
+            carrito.forEach(item => {
+                const li = document.createElement('li');
+                li.textContent = `${item.nombre} - $${item.precio}`;
+                carritoUl.appendChild(li);
+            });
+            document.getElementById('total').textContent = `Total: $${total.toFixed(2)}`;
+        }
+
+        function finalizarPedido() {
+            alert(`Pedido finalizado. Total a pagar: $${total.toFixed(2)}`);
+            carrito = [];
+            total = 0;
+            actualizarCarrito();
+        }
+
+        function buscarPlatillo() {
+            const searchTerm = document.getElementById('searchBar').value.toLowerCase();
+            const items = document.querySelectorAll('#menu ul li');
+            items.forEach(item => {
+                const texto = item.innerText.toLowerCase();
+                item.style.display = texto.includes(searchTerm) ? 'block' : 'none';
+            });
+        }
+    </script>
+</body>
+</html>

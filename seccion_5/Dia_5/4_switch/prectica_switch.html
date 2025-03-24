@@ -1,14 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+ 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Practica switch</title>
-    <script src="practica.js"></script>
+    <title>Practica 1</title>
 </head>
+ 
 <body>
-    <h1>Escribe la fruta</h1>
-    <input type="text" id="nombrefruta">
-    <button onclick="mostrarFruta()">Enviar</button>
+    <p>Elija una de las opciones</p>
+    <ol>
+        <li>Manzana</li>
+        <li>Naranja</li>
+        <li>Banana</li>
+    </ol>
+    <input id="textoFruta" type="text">
+    <p>Evaluar Parametro</p>
+    <br>
+    <button onclick="consultarPrecio()">Precio</button>
+ 
+    <script>
+        function consultarPrecio() {
+            let elementoFruta = document.getElementById("textoFruta");
+            let fruta = elementoFruta.value;
+ 
+            switch (fruta) {
+                case "Manzana":
+                    alert("El precio de la manzana es de $15")
+                    break;
+                case "Naranja":
+                    alert("El precio de la naranja es de $20")
+                    break;
+                case "Banana":
+                    alert("El precio de la banana es de $25")
+                    break;
+            }
+        }
+    </script>
 </body>
+ 
 </html>
+ 
+ 

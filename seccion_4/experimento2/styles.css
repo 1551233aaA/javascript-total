@@ -1,0 +1,57 @@
+/* General */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('coffee-background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #fff;
+    text-align: center;
+}
+
+/* Encabezado */
+.header {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.logo {
+    width: 150px;
+    margin-bottom: 10px;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    margin: 10px 0;
+}
+
+.header p {
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+/* Botones principales */
+.main .btn {
+    background-color: #d4a373;
+    color: #fff;
+    border: none;
+    padding: 15px 25px;
+    margin: 15px;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.main .btn:hover {
+    background-color: #a37b58;
+}
+
+/* Pie de página */
+.footer {
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 10px;
+    margin-top: 30px;
+    font-size: 0.9rem;
+}

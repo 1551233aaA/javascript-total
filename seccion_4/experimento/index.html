@@ -4,51 +4,100 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <title>Menú Restaurante</title>
+    <title>Menú de Postres</title>
 </head>
 <body>
     <header>
-        <h1>Menú del Restaurante</h1>
+        <h1>Menú de Postres</h1>
     </header>
     <main>
         <section class="menu">
-            <h2>Platos Principales</h2>
-            <ul>
-                <li>
-                    <h3>Pizza Margarita</h3>
-                    <p>Deliciosa pizza con salsa de tomate, mozzarella y albahaca.</p>
-                    <p>Precio: $10</p>
-                    <button onclick="ordenar('Pizza Margarita', 10)">Ordenar</button>
+            <h2>Elige tus Postres Favoritos</h2>
+            <select id="filtroTipo" onchange="filtrarPostres()">
+                <option value="todos">Todos</option>
+                <option value="helado">Helados</option>
+                <option value="pastel">Pasteles</option>
+                <option value="otros">Otros</option>
+            </select>
+            <ul id="listaPostres">
+                <li data-tipo="helado">
+                    <h3>Helado de Fresa</h3>
+                    <p>Helado cremoso con fresas frescas.</p>
+                    <p>Precio: $4</p>
+                    <button onclick="ordenar('Helado de Fresa', 4)">Ordenar</button>
                 </li>
-                <li>
-                    <h3>Spaghetti Carbonara</h3>
-                    <p>Espaguetis con salsa cremosa, huevo, panceta y queso.</p>
-                    <p>Precio: $12</p>
-                    <button onclick="ordenar('Spaghetti Carbonara', 12)">Ordenar</button>
+                <li data-tipo="pastel">
+                    <h3>Cheesecake</h3>
+                    <p>Pastel de queso con base de galleta y salsa de frutos rojos.</p>
+                    <p>Precio: $8</p>
+                    <button onclick="ordenar('Cheesecake', 8)">Ordenar</button>
+                </li>
+                <li data-tipo="helado">
+                    <h3>Helado de Mango</h3>
+                    <p>Refrescante helado tropical con trozos de mango.</p>
+                    <p>Precio: $5</p>
+                    <button onclick="ordenar('Helado de Mango', 5)">Ordenar</button>
+                </li>
+                <li data-tipo="pastel">
+                    <h3>Pastel de Chocolate</h3>
+                    <p>Pastel de chocolate con ganache y relleno cremoso.</p>
+                    <p>Precio: $10</p>
+                    <button onclick="ordenar('Pastel de Chocolate', 10)">Ordenar</button>
+                </li>
+                <li data-tipo="otros">
+                    <h3>Crepas con Nutella</h3>
+                    <p>Crepas suaves rellenas con Nutella y fresas.</p>
+                    <p>Precio: $7</p>
+                    <button onclick="ordenar('Crepas con Nutella', 7)">Ordenar</button>
                 </li>
             </ul>
             <button id="btnTotal" onclick="mostrarTotal()">Mostrar Total</button>
+            <button id="btnLimpiar" onclick="borrarPedido()">Borrar Pedido</button>
             <div id="resultado"></div>
         </section>
     </main>
     <footer>
-        <p>&copy; 2025 Restaurante</p>
+        <p>&copy; 2025 Menú de Postres</p>
     </footer>
 
     <script>
         let total = 0;
         let pedidos = [];
+        const impuesto = 0.13; // 13% de IVA
 
-        function ordenar(plato, precio) {
-            pedidos.push(plato);
+        function ordenar(postre, precio) {
+            pedidos.push({ nombre: postre, precio: precio });
             total += precio;
-            alert("Has ordenado: " + plato);
+            alert(`Has ordenado: ${postre}`);
         }
 
         function mostrarTotal() {
-            const listaPedidos = pedidos.join(', ');
-            const mensaje = `Has ordenado: ${listaPedidos}\nTotal: $${total}`;
+            const listaPedidos = pedidos.map(p => p.nombre).join(', ');
+            const impuestos = total * impuesto;
+            const totalConImpuesto = total + impuestos;
+
+            const mensaje = `
+                Has ordenado: ${listaPedidos}
+                Subtotal: $${total.toFixed(2)}
+                Impuestos (13%): $${impuestos.toFixed(2)}
+                Total final: $${totalConImpuesto.toFixed(2)}
+            `;
             document.getElementById('resultado').innerText = mensaje;
+        }
+
+        function borrarPedido() {
+            pedidos = [];
+            total = 0;
+            document.getElementById('resultado').innerText = "Tu pedido ha sido borrado.";
+            alert("Pedido borrado con éxito.");
+        }
+
+        function filtrarPostres() {
+            const filtro = document.getElementById('filtroTipo').value;
+            const items = document.querySelectorAll('#listaPostres li');
+            items.forEach(item => {
+                item.style.display = (filtro === 'todos' || item.dataset.tipo === filtro) ? 'block' : 'none';
+            });
         }
     </script>
 </body>
