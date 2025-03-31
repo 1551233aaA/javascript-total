@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+    <head>
+        <title>Loop Do...1</title>
+    </head>
+    <body>
+        <script>
+            function testLoop(numeroVueltas) {
+                let contador = 1; 
+                do {
+                    console.log("Vuelta número: " + contador);
+                    contador++; 
+                } while (contador <= numeroVueltas);
+            }
+
+            
+            let vueltas = parseInt(prompt("¿Cuántas vueltas quieres realizar?"));
+            testLoop(vueltas);
+
+        </script>
+    </body>
