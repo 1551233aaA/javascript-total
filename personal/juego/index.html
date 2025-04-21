@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Juego de Lucha Retro</title>
+  <link rel="stylesheet" href="styles.css"> <!-- Vincula el CSS -->
+</head>
+<body>
+  <!-- Pantalla de selección de personajes -->
+  <div id="selection-screen">
+    <h1>Selecciona tu personaje</h1>
+    <div id="character-selection">
+      <div class="character-option" data-character="0">Guerrero</div>
+      <div class="character-option" data-character="1">Mago</div>
+      <div class="character-option" data-character="2">Ninja</div>
+    </div>
+  </div>
+
+  <!-- Pantalla del juego -->
+  <div id="game-screen" style="display: none;">
+    <canvas id="gameCanvas" width="800" height="400"></canvas>
+    <div id="game-controls">
+      <button id="start-button">Iniciar Juego</button>
+      <button id="pause-button">Pausar Juego</button>
+      <button id="exit-button">Salir del Juego</button>
+      <button id="restart-button">Reiniciar Juego</button>
+    </div>
+    <h2>Récords</h2>
+    <table id="records-table">
+      <thead>
+        <tr>
+          <th>Jugador</th>
+          <th>Nivel Alcanzado</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Los récords se actualizarán aquí -->
+      </tbody>
+    </table>
+  </div>
+
+  <script src="game.js"></script> <!-- Vincula el JavaScript -->
+</body>
+</html>

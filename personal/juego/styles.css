@@ -1,0 +1,99 @@
+body {
+  background: linear-gradient(to bottom, black, navy);
+  color: white;
+  font-family: "Press Start 2P", sans-serif;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+/* Pantalla de selección */
+#selection-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+}
+
+#character-selection {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.character-option {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+  text-align: center;
+  line-height: 100px;
+  font-weight: bold;
+  color: white;
+  background-color: gray;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.3s;
+}
+
+.character-option:hover {
+  background-color: gold;
+  transform: scale(1.1);
+}
+
+/* Pantalla del juego */
+#game-screen {
+  margin-top: 20px;
+}
+
+canvas {
+  background: black;
+  display: block;
+  margin: auto;
+  border: 2px solid white;
+}
+
+#game-controls {
+  text-align: center;
+  margin: 20px 0;
+}
+
+button {
+  padding: 10px 20px;
+  margin: 5px;
+  font-size: 16px;
+  font-family: "Press Start 2P", sans-serif;
+  background-color: navy;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: gold;
+}
+
+/* Tabla de récords */
+#records-table {
+  margin: 20px auto;
+  border-collapse: collapse;
+  width: 50%;
+}
+
+#records-table th, #records-table td {
+  border: 1px solid white;
+  padding: 10px;
+  text-align: center;
+}
+
+#records-table th {
+  background-color: navy;
+  color: white;
+}
+
+#records-table td {
+  background-color: black;
+  color: white;
+}
