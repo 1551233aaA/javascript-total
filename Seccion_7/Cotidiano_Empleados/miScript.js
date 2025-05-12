@@ -22,10 +22,10 @@ function obtenerValoresFormulario() {
 
 
 function agregarEmpleado() {
-    let datos = obtenerValoresFormulario();
+     datos = obtenerValoresFormulario();
 
     if (datos.expediente && datos.nombre && datos.apellido && datos.fechaNacimiento && datos.cargo) {
-        let nuevoEmpleado = new Empleado(datos.expediente, datos.nombre, datos.apellido, datos.fechaNacimiento, datos.cargo);
+         nuevoEmpleado = new Empleado(datos.expediente, datos.nombre, datos.apellido, datos.fechaNacimiento, datos.cargo);
         empleados.push(nuevoEmpleado);
         limpiarCampos();
         alert("Empleado registrado exitosamente.");
@@ -41,7 +41,7 @@ function mostrarEmpleados() {
         return;
     }
 
-    let mensaje = "Lista de empleados:\n";
+     mensaje = "Lista de empleados:\n";
     empleados.forEach(emp => {
         mensaje += `Expediente: ${emp.expediente}\nNombre: ${emp.nombre} ${emp.apellido}\nNacimiento: ${emp.fechaNacimiento}\nCargo: ${emp.cargo}\n\n`;
     });
