@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+  <head>
+    <title>Objetos Prototipos</title>
+  </head>
+
+  <body>
+    <script>
+
+        function Restaurante(nombre, direccion, ciudad) {
+            this.nombre = nombre;
+            this.direccion = direccion;
+            this.ciudad = ciudad;
+        }
+        
+        restaurante1 = new Restaurante("La Buena Mesa", "Calle 123", "Madrid");
+        
+       
+        restaurante2 = Object.create(restaurante1);
+        
+     
+        console.log(restaurante2.nombre);    
+        console.log(restaurante2.direccion);  
+        console.log(restaurante2.ciudad)
+
+    </script>
+  </body>
+</html> 
