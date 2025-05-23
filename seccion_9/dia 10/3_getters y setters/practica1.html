@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo de Ciudad</title>
+</head>
+
+<body>
+    <script>
+        class Ciudad {
+            constructor(nombre, pais, habitantes) {
+                this.nombre = nombre;
+                this.pais = pais;
+                this._habitantes = habitantes;
+            }
+
+            get habitantes() {
+                return this._habitantes;
+            }
+
+            set habitantes(nuevosHabitantes) {
+                this._habitantes = nuevosHabitantes;
+            }
+        }
+
+        let ciudad2 = new Ciudad("Alajuela", "Costa Rica", 50000);
+        console.log(`Ciudad: ${ciudad2.nombre}, País: ${ciudad2.pais}, Habitantes: ${ciudad2.habitantes}`);
+    </script>
+</body>
+
+</html>
+

@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>practica2</title>
+</head>
+<body>
+
+    <script>
+        class Medico {
+            constructor(nombre, especialidad) {
+                this.nombre = nombre;
+                this.especialidad = especialidad;
+            }
+
+            mostrarInfo() {
+                return `Nombre: ${this.nombre}, Especialidad: ${this.especialidad}`;
+            }
+        }
+
+        class Cirujano extends Medico {
+            constructor(nombre, especialidad, cantOperaciones) {
+                super(nombre, especialidad);
+                this.cantOperaciones = cantOperaciones;
+            }
+
+            mostrarInfo() {
+                return `Nombre: ${this.nombre}, Especialidad: ${this.especialidad}, Operaciones realizadas: ${this.cantOperaciones}`;
+            }
+        }
+
+        const cirujano = new Cirujano("Dr. Mia", "Cirugía General", 120);
+
+        console.log(cirujano.mostrarInfo()); 
+    </script>
+
+</body>
+</html>

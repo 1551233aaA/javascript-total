@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo de Colegio</title>
+</head>
+
+<body>
+    <script>
+        class Colegio {
+            constructor(nombre, ciudad, cantEstudiantes) {
+                this.nombre = nombre;
+                this.ciudad = ciudad;
+                this._cantEstudiantes = cantEstudiantes;
+            }
+
+            get cantEstudiantes() {
+                return this._cantEstudiantes;
+            }
+
+            set cantEstudiantes(nuevosEstudiantes) {
+                this._cantEstudiantes = nuevosEstudiantes;
+            }
+        }
+
+        let gsd = new Colegio("GSD", "Guácima", 50000);
+        console.log(`Colegio: ${gsd.nombre}, Ciudad: ${gsd.ciudad}, Estudiantes: ${gsd.cantEstudiantes}`);
+    </script>
+</body>
+
+</html>
+

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>practica</title>
+</head>
+<body>
+    <h1>Empleado</h1>
+
+    <script>
+        class Persona {
+            constructor(nombre, edad) {
+                this.nombre = nombre;
+                this.edad = edad;
+            }
+
+            mostrarInfo() {
+                return `Nombre: ${this.nombre}, Edad: ${this.edad}`;
+            }
+        }
+
+        class Empleado extends Persona {
+            constructor(nombre, edad, salario) {
+                super(nombre, edad);
+                this.salario = salario;
+            }
+
+            mostrarInfo() {
+                return `Nombre: ${this.nombre}, Edad: ${this.edad}, Salario: ${this.salario}`;
+            }
+        }
+
+        const empleado = new Empleado("Fabian Pérez", 30, 100000);
+
+        console.log(empleado.mostrarInfo()); 
+    </script>
+</body>
+</html>
+
