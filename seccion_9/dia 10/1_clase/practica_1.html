@@ -1,11 +1,29 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>practica1</title>
-    </head>
-    <body>
-        <script>
-            
-        </script>
-    </body>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clase Mesa</title>
+</head>
+<body>
+
+
+    <script>
+        class Mesa {
+            constructor(alto, ancho, largo) {
+                this.alto = alto;
+                this.ancho = ancho;
+                this.largo = largo;
+            }
+
+            getInfo() {
+                return `Alto: ${this.alto} cm, Ancho: ${this.ancho} cm, Largo: ${this.largo} cm`;
+            }
+        }
+
+        const miMesa = new Mesa(75, 120, 60);
+        console.log(miMesa.getInfo());
+    </script>
+</body>
 </html>
+
