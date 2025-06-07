@@ -1,0 +1,24 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+header img {
+    width: 150px;
+}
+
+.saldos {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.saldos div {
+    display: flex;
+    align-items: center;
+}
+
+.saldos img {
+    width: 30px;
+    margin-right: 10px;
+}

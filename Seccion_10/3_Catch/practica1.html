@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catch 1</title>
+</head>
+<body>
+    <script>
+        function ejecutar() {
+            fetch('datos.json')
+            .then(respuesta => {
+                if (!respuesta.ok) {
+                    throw new Error(`Error ${respuesta.status}: No se pudo cargar los datos`);
+                }
+                return respuesta.json();
+            })
+            .then(salida => {
+                const datosPelicula = {
+                    titulo: salida.titulo,
+                    director: salida.director,
+                    lanzamiento: salida.lanzamiento,
+                    duracion: salida.duracion,
+                    actores: salida.actores,
+                    premioOscar: salida.premioOscar
+                };
+                console.log(datosPelicula);
+            })
+            .catch(error => {
+                console.error('Ocurrió un error:', error);
+                alert('No se pudo cargar los datos. Verifica la consola para más detalles.');
+            });
+        }
+
+        ejecutar();
+    </script>
+</body>
+</html>
