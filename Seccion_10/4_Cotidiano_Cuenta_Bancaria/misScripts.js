@@ -1,19 +1,27 @@
 function cargarResumen() {
-    fetch('banco.json')
-        .then(function(respuesta) {
-            return respuesta.json();
-        })
-        .then(function(datos) {
-            document.getElementById('banco').textContent = datos.banco;
-            document.getElementById('sucursal').textContent = datos.sucursal;
-            document.getElementById('titular').textContent = datos.titular;
-            document.getElementById('cuenta').textContent = "Cuenta: " + datos.cuenta;
-            document.getElementById('usd').textContent = datos.saldos[0].monto + " USD";
-            document.getElementById('euro').textContent = datos.saldos[1].monto + " EUR";
-            document.getElementById('tarjeta').textContent = "Tarjeta: " + datos.tarjeta;
-            document.getElementById('fecha').textContent = "Abierta: " + datos.fecha_apertura;
-        })
-        .catch(function(error) {
-            console.error("Error al cargar resumen.json:", error);
-        });
+  fetch("resumen.json")
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("No se pudo cargar el archivo JSON.");
+      }
+      return response.json();
+    })
+    .then(data => {
+      document.getElementById("banco").textContent = data.banco;
+      document.getElementById("sucursal").textContent = data.sucursal;
+      document.getElementById("titular").textContent = data.titular;
+      document.getElementById("numero_cuenta").textContent = data.numero_cuenta;
+      document.getElementById("numero_tarjeta").textContent = data["numero de tajeta"];
+      document.getElementById("fecha_apertura").textContent = data.abierto;
+
+      const saldoUSD = data.saldo.find(s => s.moneda === "USD");
+      const saldoEUR = data.saldo.find(s => s.moneda === "EUR");
+
+      document.getElementById("saldo_usd").textContent = `$${saldoUSD.monto.toFixed(2)}`;
+      document.getElementById("saldo_eur").textContent = `€${saldoEUR.monto.toFixed(2)}`;
+    })
+    .catch(error => {
+      console.error("Error al cargar el resumen:", error);
+      alert("Hubo un problema al cargar el resumen bancario.");
+    });
 }

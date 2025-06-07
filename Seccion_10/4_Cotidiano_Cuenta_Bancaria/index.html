@@ -1,28 +1,49 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resumen Bancario</title>
-    <link rel="stylesheet" href="misEstilos.css">
-    <script src="misScripts.js" defer></script>
+  <meta charset="UTF-8">
+  <title>Resumen Bancario</title>
+  <link rel="stylesheet" href="misEstilos.css">
+  <script src="misScripts.js" defer></script>
 </head>
 <body onload="cargarResumen()">
-    <div class="card">
-        <img src="logo.png" alt="Logo del Banco" class="logo">
-        <h1 id="banco"></h1>
-        <h2 id="sucursal"></h2>
-        <hr>
-        <p id="titular"></p>
-        <p id="cuenta"></p>
-        <hr>
-        <div class="saldos">
-            <img src="usd.png" alt="USD" class="icono"><span id="usd"></span>
-            <img src="euro.png" alt="EUR" class="icono"><span id="euro"></span>
-        </div>
-        <hr>
-        <p id="tarjeta"></p>
-        <p id="fecha"></p>
-    </div>
+  <main class="banco-contenedor">
+    
+    
+    <header class="banco-header">
+      <img src="c:\Users\jpGonzalez_2.Jose.000\OneDrive\Imágenes\R.png" alt="Logo del banco" class="banco-logo">
+      <div>
+        <h1 id="banco">Banco Nacional</h1>
+        <h2 id="sucursal">Sucursal</h2>
+      </div>
+    </header>
+
+
+    <section class="banco-datos">
+      <h3>Datos del Titular</h3>
+      <p><strong>Nombre:</strong> <span id="titular"></span></p>
+      <p><strong>Número de Cuenta:</strong> <span id="numero_cuenta"></span></p>
+    </section>
+
+
+    <section class="banco-saldos">
+      <h3>Saldos</h3>
+      <div class="saldo-item">
+        <img src="c:\Users\jpGonzalez_2.Jose.000\OneDrive\Imágenes\dollar_sign_PNG5.png" alt="USD">
+        <span id="saldo_usd">$0.00</span>
+      </div>
+      <div class="saldo-item">
+        <img src="c:\Users\jpGonzalez_2.Jose.000\OneDrive\Imágenes\OIP.jpeg" alt="EUR">
+        <span id="saldo_eur">€0.00</span>
+      </div>
+    </section>
+
+    <section class="banco-extras">
+      <h3>Información Adicional</h3>
+      <p><strong>CBU:</strong> <span id="numero_tarjeta"></span></p>
+      <p><strong>Fecha de Apertura:</strong> <span id="fecha_apertura"></span></p>
+    </section>
+
+  </main>
 </body>
 </html>
