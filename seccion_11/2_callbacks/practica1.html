@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejemplo de Callback</title>
+</head>
+<body>
+  <h1>Práctica: Callbacks con setTimeout</h1>
+  <button onclick="test(imprimir)">Haz clic aquí</button>
+
+  <script>
+    function test(callback) {
+      setTimeout(() => {
+        callback("Hola mundo");
+      }, 2000);
+    }
+
+    function imprimir(mensaje) {
+      console.log(mensaje);
+    }
+  </script>
+</body>
+</html>
