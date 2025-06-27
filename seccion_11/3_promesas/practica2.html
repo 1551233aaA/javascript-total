@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Práctica: Promesas 2</title>
+</head>
+<body>
+    <h2>Resultado de la petición</h2>
+    <p id="respuesta"></p>
+
+    <script>
+        function getDatos(url) {
+            return new Promise((resolve, reject) => {
+                const xhr = new XMLHttpRequest();
+
+                xhr.open("GET", url);
+
+                xhr.onload = function () {
+                    if (xhr.status >= 200 && xhr.status < 300) {
+                        resolve(xhr.responseText);
+                    } else {
+                        reject(`Error: ${xhr.status}`);
+                    }
+                };
+
+                xhr.onerror = function () {
+                    reject("Error de red");
+                };
+
+                xhr.send();
+            });
+        }
+
+        const url = "https://jsonplaceholder.typicode.com/posts/1";
+
+        getDatos(url)
+            .then(resultado => {
+                document.getElementById("respuesta").textContent = resultado;
+            })
+            .catch(error => {
+                document.getElementById("respuesta").textContent = error;
+            });
+    </script>
+</body>
+</html>

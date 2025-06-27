@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo de Promesa</title>
+</head>
+
+<body>
+    <script>
+        let miPromesa;
+
+        function evaluar(condicion) {
+            miPromesa = new Promise((resolver, rechazar) => {
+                condicion ? resolver("Todo bien") : rechazar("Ocurrió un problema");
+            });
+
+            miPromesa
+                .then(respuesta => console.log("Resultado exitoso:", respuesta))
+                .catch(err => console.error("Resultado fallido:", err));
+        }
+
+        evaluar(true);
+    </script>
+</body>
+
+</html>
