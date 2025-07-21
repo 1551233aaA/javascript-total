@@ -1,0 +1,17 @@
+body {
+  background-color: antiquewhite;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  width: 40%;
+  margin: auto;
+  padding-top: 50px;
+}
+
+#eurusd, #crusd, #bitusd {
+  background-color: #d54d7b;
+  color: white;
+  padding: 20px;
+  margin: 10px;
+  border-radius: 10px;
+  font-size: 1.2em;
+}
