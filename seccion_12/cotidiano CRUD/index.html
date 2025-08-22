@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gestor de Inventario Digital</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f8f9fa;
+        }
+        .contenedor {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .titulo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            color: #2c3e50;
+            font-size: 1.25rem;
+        }
+       
+        .formulario {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        input, button {
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+       
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+            font-size: 0.9rem;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        #resultadoConsulta {
+            margin-top: 15px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+<div class="contenedor">
+    <header>
+        <h1 class="mb-4 text-center">Control de Inventario</h1>
+        
+    </header>
+
+
+    <section class="seccion">
+        <h2>Registrar Nuevo Artículo</h2>
+        <div class="formulario">
+            <input type="text" id="nombre" placeholder="Descripción del artículo" class="form-control" />
+            <input type="number" id="precio" placeholder="Precio " class="form-control" />
+            <button onclick="agregarProducto()" class="btn btn-success">Registrar</button>
+        </div>
+    </section>
+
+    <section class="seccion">
+        <h2>Buscar Artículo por ID</h2>
+        <div class="formulario">
+            <input type="number" id="consultaID" placeholder="ID a buscar" class="form-control" />
+            <button onclick="consultarProducto()" class="btn btn-info">Buscar</button>
+        </div>
+        <div id="resultadoConsulta"></div>
+    </section>
+
+
+    <section class="seccion">
+        <h2>Lista de Artículos</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Precio</th>
+                    <th>Opciones</th>
+                </tr>
+            </thead>
+            <tbody id="productos"></tbody>
+        </table>
+    </section>
+</div>
+
+
+<script>
+    const API_URL = "https://fc0fc246-db95-4007-908f-59bf5ad8a2f2-00-2e9edvvsp9xmj.riker.replit.dev/productos";
+
+    function cargarProductos() {
+        fetch(API_URL)
+            .then((response) => response.json())
+            .then((data) => {
+                const tbody = document.getElementById("productos");
+                tbody.innerHTML = "";
+                data.forEach((p) => {
+                    tbody.innerHTML += `
+<tr>
+<td>${p.id}</td>
+<td><input value="${p.nombre}" id="nombre-${p.id}" class="form-control"></td>
+<td><input value="${p.precio}" id="precio-${p.id}" class="form-control"></td>
+<td>
+    <button onclick="actualizarProducto(${p.id})" class="btn btn-warning btn-sm">Editar</button>
+    <button onclick="eliminarProducto(${p.id})" class="btn btn-danger btn-sm">Eliminar</button>
+</td>
+</tr>`;
+                });
+            });
+    }
+
+    function agregarProducto() {
+        const nombre = document.getElementById("nombre").value;
+        const precio = document.getElementById("precio").value;
+        fetch(API_URL, {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({ nombre, precio }),
+        }).then(() => {
+            document.getElementById("nombre").value = "";
+            document.getElementById("precio").value = "";
+            cargarProductos();
+        });
+    }
+
+    function actualizarProducto(id) {
+        const nombre = document.getElementById(`nombre-${id}`).value;
+        const precio = parseFloat(document.getElementById(`precio-${id}`).value);
+        fetch(`${API_URL}/${id}`, {
+            method: "PUT",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({ nombre, precio }),
+        }).then(cargarProductos);
+    }
+
+    function eliminarProducto(id) {
+        fetch(`${API_URL}/${id}`, { method: "DELETE" })
+            .then(cargarProductos);
+    }
+
+    function consultarProducto() {
+        const id = document.getElementById("consultaID").value;
+        fetch(`${API_URL}/${id}`)
+            .then((response) => {
+                if (!response.ok) throw new Error("Artículo no encontrado");
+                return response.json();
+            })
+            .then((data) => {
+                document.getElementById("resultadoConsulta").innerHTML = `
+<p><strong>ID:</strong> ${data.id}</p>
+<p><strong>Nombre:</strong> ${data.nombre}</p>
+<p><strong>Precio:</strong> ${data.precio}</p>
+                `;
+            })
+            .catch(() => {
+                document.getElementById("resultadoConsulta").innerText = "Artículo no encontrado.";
+            });
+    }
+
+    cargarProductos();
+</script>
+</body>
+</html>
