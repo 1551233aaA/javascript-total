@@ -1,0 +1,46 @@
+{
+  "pacientes": [
+    {
+      "id": 1,
+      "nombre": "Carlos Mendoza",
+      "edad": 28,
+      "diagnostico": "Hipertensión",
+      "tieneCita": true
+    },
+    {
+      "id": 2,
+      "nombre": "Ana López",
+      "edad": 38,
+      "diagnostico": "Diabetes tipo 2",
+      "tieneCita": true
+    },
+    {
+      "id": 3,
+      "nombre": "Luiz Navarro",
+      "edad": 36,
+      "diagnostico": "Diabetes tipo 1",
+      "tieneCita": true
+    },
+    {
+      "id": 4,
+      "nombre": "fanny",
+      "edad": 8,
+      "diagnostico": "cancer",
+      "tieneCita": false
+    },
+    {
+      "id": 5,
+      "nombre": "marcela",
+      "edad": 25,
+      "diagnostico": "diabetes",
+      "tieneCita": false
+    },
+    {
+      "id": 6,
+      "nombre": "fabian",
+      "edad": 17,
+      "diagnostico": "Hipertensión",
+      "tieneCita": true
+    }
+  ]
+}

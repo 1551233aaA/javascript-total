@@ -1,0 +1,30 @@
+GET http://localhost:3000/pacientes
+
+###
+GET http://localhost:3000/pacientes/1
+
+###
+
+POST http://localhost:3000/pacientes
+Content-Type: application/json
+
+{
+    "id": 3,
+    "nombre": "Luiz Navarro",
+    "edad": 38,
+    "diagnostico": "Diabetes tipo 1",
+    "tieneCita": true
+}
+
+###
+
+PUT http://localhost:3000/pacientes/3
+Content-Type: application/json
+
+{
+    "edad": 36
+}
+
+###
+
+DELETE http://localhost:3000/pacientes/3

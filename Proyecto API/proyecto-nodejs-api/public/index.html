@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Pacientes</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="MisEstilos.css">
+</head>
+<body>
+    <h1>Registro de Pacientes</h1>
+    <form id="paciente-form">
+        <input type="number" id="id" placeholder="ID" required>
+        <input type="text" id="nombre" placeholder="Nombre" required>
+        <input type="number" id="edad" placeholder="Edad" required>
+        <input type="text" id="diagnostico" placeholder="Diagnóstico" required>
+
+        <label>
+            <input type="checkbox" id="tieneCita">
+            ¿Tiene cita?
+        </label>
+
+        <button type="submit">Agregar Paciente</button>
+    </form>
+
+    <div id="pacientes-container"></div>
+    <script src="app.js"></script>
+</body>
+</html>
