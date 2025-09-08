@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio de Matrices</title>
+    <!-- Enlaza el archivo CSS externo para los estilos -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Ejercicio de Matrices</h1>
+    <h2>Dimensiones: 4 filas × 3 columnas</h2>
+    
+    <div class="operations-section">
+        <button id="btnLlenarMatriz">1. Llenar matriz con números aleatorios (10-20)</button>
+        <button id="btnCalcularPromedio">2. Calcular promedio</button>
+        
+        <div class="input-group">
+            <button id="btnMostrarInputSuma">3. Sumar número a todas las celdas</button>
+            <div id="inputSumaContainer" class="input-form-container" style="display: none;">
+                <input type="number" id="numeroSuma" placeholder="Número a sumar" required>
+                <button id="btnSumarNumero">Sumar</button>
+            </div>
+        </div>
+        
+        <div class="input-group">
+            <button id="btnMostrarInputFila">4. Duplicar fila específica</button>
+            <div id="inputFilaContainer" class="input-form-container" style="display: none;">
+                <input type="number" id="numeroFila" placeholder="Número de fila (0-3)" min="0" max="3" required>
+                <button id="btnDuplicarFila">Duplicar</button>
+            </div>
+        </div>
+        
+        <button id="btnSumaDiagonalPrincipal">5. Suma diagonal principal</button>
+        <button id="btnSumaDiagonalInversa">6. Suma diagonal inversa</button>
+        <button id="btnEncontrarMayor">7. Encontrar mayor elemento</button>
+        
+        <div class="input-group">
+            <button id="btnMostrarInputBuscar">8. Buscar número</button>
+            <div id="inputBuscarContainer" class="input-form-container" style="display: none;">
+                <input type="number" id="numeroBuscar" placeholder="Número a buscar" required>
+                <button id="btnBuscarNumero">Buscar</button>
+            </div>
+        </div>
+        
+        <div class="input-group">
+            <button id="btnMostrarInputBuscarPos">9. Buscar posiciones de un número</button>
+            <div id="inputBuscarPosContainer" class="input-form-container" style="display: none;">
+                <input type="number" id="numeroBuscarPos" placeholder="Número a buscar" required>
+                <button id="btnBuscarPosiciones">Buscar posiciones</button>
+            </div>
+        </div>
+        
+        <button id="btnModificarBajoDiagonal">10. Llenar con ceros bajo diagonal principal</button>
+        <button id="btnIntercambiarFilas">11. Intercambiar filas pares con impares</button>
+        <button id="btnCopiarCeldaSuperior">12. Copiar celda superior (duplicada)</button>
+        <button id="btnOrdenarFilas">13. Ordenar cada fila</button>
+        <button id="btnSumaFilas">14. Suma de cada fila</button>
+        <button id="btnMayorColumnas">15. Mayor de cada columna</button>
+        <button id="btnMostrarMatriz">16. Mostrar matriz</button>
+    </div>
+
+    <hr>
+
+    <h3>Matriz Actual:</h3>
+    <table id="matrixTable">
+        <!-- La matriz se mostrará aquí -->
+    </table>
+
+    <hr>
+
+    <h3>Resultados:</h3>
+    <div id="resultados" class="result-info"></div>
+
+    <!-- Enlaza el archivo JavaScript externo al final del body para asegurar que el DOM esté cargado -->
+    <script src="script.js"></script>
+</body>
+</html>
