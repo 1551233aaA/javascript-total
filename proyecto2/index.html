@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Batalla de Monstruos</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Batalla de Monstruos</h1>
+  <div id="game-board"></div>
+  <button onclick="nextTurn()">Siguiente Turno</button>
+  <button onclick="saveGame()">Guardar Partida</button>
+  <button onclick="loadGame()">Cargar Partida</button>
+  <input type="file" id="xmlInput" onchange="importXML(event)">
+  <button onclick="exportXML()">Exportar a XML</button>
+  <div id="result"></div>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+body {
+  font-family: sans-serif;
+  text-align: center;
+  background-color: #f0f0f0;
+}
+table {
+  margin: auto;
+  border-collapse: collapse;
+}
+td, th {
+  border: 1px solid #333;
+  padding: 10px;
+}
+.red {
+  background-color: #ffcccc;
+}
